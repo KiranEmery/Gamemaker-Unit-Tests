@@ -16,12 +16,12 @@
     </scripts>
     <scripts name="GmTest">
       <script>scripts\shouldEqual.gml</script>
-      <script>scripts\describe.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\ob_example</object>
     <object>objects\ob_unittests</object>
+    <object>objects\test_result</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_tests</room>

@@ -49,8 +49,49 @@ show_debug_message("test item initialized - press enter to run")
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// example passing test using ob_example
+            <string>/// ob_example should move up when ob_move_up is called
 testName = "ob_example should move up when ob_move_up is called";
+
+// first we clear out the room
+with(all) 
+    instance_destroy();
+    
+// then we create the items we need
+instance_create(50,50,ob_example);
+
+// run the code we are testing
+ob_move_up(ob_example,10)
+
+// Do the test
+result = shouldEqual(testName, ob_example.y, 40);
+
+// output results
+show_debug_message(result.message);
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// ob_example should move up by 9 when ob_move_up is called
+
+testName = "ob_example should move up by 9 when ob_move_up is called";
 
 // first we clear out the room
 with(all) 
@@ -64,19 +105,11 @@ ob_move_up(ob_example,10)
 
 
 // Do the test
-result = shouldEqual(ob_example.y, 40);
+result = shouldEqual(testName, ob_example.y, 41);
 
 
 // output results
-if(result){
-    show_debug_message(testName + " - PASSED");
-}
-else {
-    show_question(testName + " - FAILED. Do you want to continue?")
-    show_debug_message(testName + " - FAILED");
-    
-}
-
+show_debug_message(result.message)
 
 
 </string>
